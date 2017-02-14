@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/jrmykolyn/test.js.react.inventory/issues"
   },
-  "homepage": "https://github.com/jrmykolyn/test.js.react.inventory#readme"
+  "homepage": "https://github.com/jrmykolyn/test.js.react.inventory#readme",
+  "dependencies": {
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2"
+  }
 }
