@@ -3,6 +3,8 @@
 // --------------------------------------------------
 var React = require( 'react' );
 
+import { items } from '../data/data.js';
+
 import Inventory from '../components/inventory/inventory.js';
 
 
@@ -19,12 +21,6 @@ class App extends React.Component {
 
     render() {
         console.log( 'INSIDE `App` `render()`' ); /// TEMP
-
-        var items = [
-            { name: 'Item 1' },
-            { name: 'Item 2' },
-            { name: 'Item 3' }
-        ]
 
         return (
             <Inventory items={ items } />
