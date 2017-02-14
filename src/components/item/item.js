@@ -15,7 +15,7 @@ class Item extends React.Component {
 
     render() {
         return (
-            <p>Item</p>
+            <p>{ this.props.name || 'Fallback' }</p>
         );
     }
 } // /Inventory

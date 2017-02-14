@@ -3,6 +3,7 @@
 // --------------------------------------------------
 var React = require( 'react' );
 
+import Item from '../item/item.js';
 
 // --------------------------------------------------
 // COMPONENT
@@ -14,9 +15,21 @@ class Inventory extends React.Component {
 
 
     render() {
+        var items = this.props.items || [];
+        var itemComponents = [];
+
+        items.forEach( ( item, i ) => {
+            itemComponents.push(<Item name={item.name} key={ i } />);
+        } );
+
         return (
             <section>
-                <h2>Inventory</h2>
+                <div className="inventory-header">
+                    <h2>Inventory</h2>
+                </div>
+                <div className="inventory-body">
+                    { itemComponents }
+                </div>
             </section>
         );
     }
