@@ -25,6 +25,11 @@ module.exports = {
                 query: {
                     presets: [ 'react' ]
                 }
+            },
+            // Handle: Styles
+            {
+                test: /\.scss$/,
+                loader: 'style-loader!css-loader!sass-loader'
             }
         ]
     },
