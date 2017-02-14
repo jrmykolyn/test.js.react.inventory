@@ -2,21 +2,28 @@
 // IMPORT MODULES
 // --------------------------------------------------
 var React = require( 'react' );
-var ReactDOM = require( 'react-dom' );
 
 
 // --------------------------------------------------
-// IMPORT PROJECT FILES
+// COMPONENT
 // --------------------------------------------------
-require( './index.html' );
+class Inventory extends React.Component {
+    constructor() {
+        super();
+    }
 
-import App from './app/app.js';
+
+    render() {
+        return (
+            <section>
+                <h2>Inventory</h2>
+            </section>
+        );
+    }
+} // /Inventory
 
 
 // --------------------------------------------------
-// DO PROGRAM
+// PUBLIC API
 // --------------------------------------------------
-ReactDOM.render(
-    <App />,
-    document.getElementById( 'root' )
-);
+export default Inventory;
