@@ -10,6 +10,15 @@ module.exports = {
     },
     module: {
         loaders: [
+            // Handle: HTML
+            {
+                test: /.html$/,
+                loader: 'file-loader',
+                query: {
+                    name: '[name].[ext]'
+                }
+            },
+            // Handle: JS
             {
                 test: /\.(jsx?)$/,
                 loader: 'babel-loader',
