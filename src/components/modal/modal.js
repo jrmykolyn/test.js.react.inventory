@@ -8,17 +8,30 @@ var React = require( 'react' );
 // COMPONENT
 // --------------------------------------------------
 class Modal extends React.Component {
-    constructor() {
-        super();
+    constructor( props ) {
+        super( props );
+
+        this.state = {
+            isActive: false,
+            data: this.props.data
+        };
     }
 
 
     render() {
         return (
-            <div className="modal">
-                <p>This is the Modal component.</p>
+            <div className={ this.getClassName() }>
+                <h2>{ this.props.data.name }</h2>
+                <p>{ this.props.data.description }</p>
+                <p>{ this.props.data.durability }</p>
             </div>
         );
+    }
+
+
+    getClassName() {
+        // return ( this.state.isActive ) ? 'modal--active' : 'modal';
+        return 1;
     }
 } // /Modal
 

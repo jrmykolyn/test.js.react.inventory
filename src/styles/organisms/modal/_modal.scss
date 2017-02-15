@@ -1,0 +1,38 @@
+// --------------------------------------------------
+// VARIABLES 
+// --------------------------------------------------
+// Add any SASS variables that are specific to this file here.
+$modal: '.modal';
+
+
+// --------------------------------------------------
+// PLACEHOLDERS 
+// --------------------------------------------------
+// Write shared styles in placeholder rules here, then extend them from specific selectors below.
+
+
+// --------------------------------------------------
+// SELECTORS 
+// --------------------------------------------------
+// Rules, logic, and anything else that can be compiled to "vanilla" CSS goes here.
+#{$modal} {
+    width: 90%;
+    max-width: 600px;
+    height: auto;
+    min-height: 200px;
+    
+    display: none;
+    box-shadow: 0 5px 20px -5px rgba( 0,0,0,0.3 );
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate( -50%, -50% );
+
+    &--active {
+        @extend #{$modal};
+        
+        display: block;
+    }
+}
+

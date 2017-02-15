@@ -16,14 +16,14 @@ class Item extends React.Component {
     render() {
         return (
             <article className="item" onClick={ ( e ) => { this.triggerModalWithData(); } }>
-                <p>{ this.props.name || 'Fallback' }</p>
+                <p>{ this.props.data.name || 'Fallback' }</p>
             </article>
         );
     }
 
 
     triggerModalWithData() {
-        this.props.triggerModal.call( null, this );
+        this.props.triggerModal.call( null, this.props.data );
     }
 } // /Item
 
