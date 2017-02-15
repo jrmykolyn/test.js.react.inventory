@@ -19,7 +19,7 @@ class Inventory extends React.Component {
         var itemComponents = [];
 
         items.forEach( ( item, i ) => {
-            itemComponents.push(<Item name={item.name} key={ i } />);
+            itemComponents.push(<Item name={item.name} key={ i } triggerModal={ this.props.triggerModal } />);
         } );
 
         return (

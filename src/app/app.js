@@ -6,6 +6,7 @@ var React = require( 'react' );
 import { items } from '../data/data.js';
 
 import Inventory from '../components/inventory/inventory.js';
+import Modal from '../components/modal/modal.js';
 
 
 // --------------------------------------------------
@@ -13,23 +14,31 @@ import Inventory from '../components/inventory/inventory.js';
 // --------------------------------------------------
 class App extends React.Component {
     constructor() {
-        console.log( 'INSIDE `App` `constructor()`' ); /// TEMP
-
         super(); /// TODO[@jrmykolyn] - Look into why `super()` call is required.
     }
 
-
     render() {
-        console.log( 'INSIDE `App` `render()`' ); /// TEMP
-
         return (
-            <Inventory items={ items } />
+            <div>
+                <Inventory items={ items } triggerModal={ this.triggerModal.bind( this ) } />
+                <Modal />
+            </div>
         );
     }
 
 
+    triggerModal( data ) {
+        this.handleModal( data );
+    }
+
+
+    handleModal( data ) {
+        /// TODO[@jrmykolyn] - Toggle 'Modal' display state.
+    }
+
+
     componentWillMount() {
-        console.log( 'INSIDE `App` `componentWillMount()`' ); /// TEMP
+
     }
 } // /App
 

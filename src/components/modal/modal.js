@@ -7,7 +7,7 @@ var React = require( 'react' );
 // --------------------------------------------------
 // COMPONENT
 // --------------------------------------------------
-class Item extends React.Component {
+class Modal extends React.Component {
     constructor() {
         super();
     }
@@ -15,20 +15,15 @@ class Item extends React.Component {
 
     render() {
         return (
-            <article className="item" onClick={ ( e ) => { this.triggerModalWithData(); } }>
-                <p>{ this.props.name || 'Fallback' }</p>
-            </article>
+            <div className="modal">
+                <p>This is the Modal component.</p>
+            </div>
         );
     }
-
-
-    triggerModalWithData() {
-        this.props.triggerModal.call( null, this );
-    }
-} // /Item
+} // /Modal
 
 
 // --------------------------------------------------
 // PUBLIC API
 // --------------------------------------------------
-export default Item;
+export default Modal;
