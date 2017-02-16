@@ -33,24 +33,15 @@ class ItemForm extends React.Component {
     }
 
 
-    handleNameUpdate( event ) {
+    handleFieldUpdate( event ) {
         event.preventDefault();
 
-        this.setState( { name: event.target.value } );
-    }
-
-
-    handleTypeUpdate( event ) {
-        event.preventDefault();
-
-        this.setState( { type: event.target.value } );
-    }
-
-
-    handleDurabilityUpdate( event ) {
-        event.preventDefault();
-
-        this.setState( { durability: event.target.value } );
+        // Dynamically set/update prop. on `state` object.
+        // Approach below is equivalent to:
+        // - var stateObj = {};
+        // - stateObj[ event.target.name ] = event.target.value;
+        // - this.setState( stateObj );
+        this.setState( { [event.target.name]: event.target.value } );
     }
 
 
@@ -66,11 +57,11 @@ class ItemForm extends React.Component {
                     <ul>
                         <li>
                             <label htmlFor="item_name">Item Name</label><br />
-                            <input id="item_name" type="text" value={ this.state.name } onChange={ this.handleNameUpdate.bind( this ) } />
+                            <input id="item_name" type="text" name="name" value={ this.state.name } onChange={ this.handleFieldUpdate.bind( this ) } />
                         </li>
                         <li>
                             <label htmlFor="item_type">Item Type</label><br />
-                            <select id="item_type" value={ this.state.type } onChange={ this.handleTypeUpdate.bind( this ) }>
+                            <select id="item_type" name="type" value={ this.state.type } onChange={ this.handleFieldUpdate.bind( this ) }>
                             {
                                 typesArr.map( ( type, index ) => {
                                     return <option key={ index } value={ type } >{ type }</option>
@@ -80,7 +71,7 @@ class ItemForm extends React.Component {
                         </li>
                         <li>
                             <label htmlFor="item_durability">Item Durability</label><br />
-                            <select id="item_durability" value={ this.state.durability } onChange={ this.handleDurabilityUpdate.bind( this ) }>
+                            <select id="item_durability" name="durability" value={ this.state.durability } onChange={ this.handleFieldUpdate.bind( this ) }>
                             {
                                 durabilityArr.map( ( durability, index ) => {
                                     return <option key={ index } value={ durability } >{ durability }</option>
