@@ -7,6 +7,7 @@ import { items } from '../data/data.js';
 
 import Inventory from '../components/inventory/inventory.js';
 import Modal from '../components/modal/modal.js';
+import ItemForm from '../components/item-form/item-form.js';
 
 
 // --------------------------------------------------
@@ -24,6 +25,7 @@ class App extends React.Component {
     render() {
         return (
             <div>
+                <ItemForm />
                 <Inventory items={ items } triggerModal={ this.triggerModal.bind( this ) } />
                 <Modal data={ this.state.activeItem }/>
             </div>
