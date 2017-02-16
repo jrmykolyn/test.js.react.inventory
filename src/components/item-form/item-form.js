@@ -15,8 +15,8 @@ var durabilityArr = [ 1,2,3,4,5 ];
 // COMPONENT
 // --------------------------------------------------
 class ItemForm extends React.Component {
-    constructor() {
-        super();
+    constructor( props ) {
+        super( props );
 
         this.state = {
             itemName: '',
@@ -27,9 +27,9 @@ class ItemForm extends React.Component {
     
     
     handleFormSubmit( event ) {
-        console.log( 'INSIDE `handleFormSubmit()`' ); /// TEMP
-
         event.preventDefault();
+
+        this.props.addItem( this.state );
     }
 
 
@@ -91,6 +91,7 @@ class ItemForm extends React.Component {
                     </ul>
                 </div>
                 <div className="form-footer">
+                    <input type="submit" value="Create Item" />
                 </div>
             </form>
         );

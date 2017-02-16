@@ -17,7 +17,8 @@ class App extends React.Component {
     constructor() {
         super(); /// TODO[@jrmykolyn] - Look into why `super()` call is required.
         this.state = {
-            activeItem: items[ 0 ]
+            activeItem: items[ 0 ],
+            items: items
         };
     }
 
@@ -25,8 +26,8 @@ class App extends React.Component {
     render() {
         return (
             <div>
-                <ItemForm />
-                <Inventory items={ items } triggerModal={ this.triggerModal.bind( this ) } />
+                <ItemForm addItem={ this.addItem.bind( this ) }/>
+                <Inventory items={ this.state.items } triggerModal={ this.triggerModal.bind( this ) } />
                 <Modal data={ this.state.activeItem }/>
             </div>
         );
@@ -44,6 +45,15 @@ class App extends React.Component {
 
     handleModal( data ) {
         /// TODO[@jrmykolyn] - Toggle 'Modal' display state.
+    }
+
+    addItem( item ) {
+        console.log( 'INSIDE `addItem`' ); /// TEMP
+
+        var items = this.state.items;
+        items.push( item );
+
+        this.setState( { items: items } );
     }
 
 
