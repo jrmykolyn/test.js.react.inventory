@@ -19,9 +19,9 @@ class ItemForm extends React.Component {
         super( props );
 
         this.state = {
-            itemName: '',
-            itemDurability: durabilityArr[ 0 ],
-            itemType: typesArr[ 0 ]
+            name: '',
+            durability: durabilityArr[ 0 ],
+            type: typesArr[ 0 ]
         };
     }
     
@@ -36,21 +36,21 @@ class ItemForm extends React.Component {
     handleNameUpdate( event ) {
         event.preventDefault();
 
-        this.setState( { itemName: event.target.value } );
+        this.setState( { name: event.target.value } );
     }
 
 
     handleTypeUpdate( event ) {
         event.preventDefault();
 
-        this.setState( { itemType: event.target.value } );
+        this.setState( { type: event.target.value } );
     }
 
 
     handleDurabilityUpdate( event ) {
         event.preventDefault();
 
-        this.setState( { itemDurability: event.target.value } );
+        this.setState( { durability: event.target.value } );
     }
 
 
@@ -66,11 +66,11 @@ class ItemForm extends React.Component {
                     <ul>
                         <li>
                             <label htmlFor="item_name">Item Name</label><br />
-                            <input id="item_name" type="text" value={ this.state.itemName } onChange={ this.handleNameUpdate.bind( this ) } />
+                            <input id="item_name" type="text" value={ this.state.name } onChange={ this.handleNameUpdate.bind( this ) } />
                         </li>
                         <li>
                             <label htmlFor="item_type">Item Type</label><br />
-                            <select id="item_type" value={ this.state.itemType } onChange={ this.handleTypeUpdate.bind( this ) }>
+                            <select id="item_type" value={ this.state.type } onChange={ this.handleTypeUpdate.bind( this ) }>
                             {
                                 typesArr.map( ( type, index ) => {
                                     return <option key={ index } value={ type } >{ type }</option>
@@ -80,7 +80,7 @@ class ItemForm extends React.Component {
                         </li>
                         <li>
                             <label htmlFor="item_durability">Item Durability</label><br />
-                            <select id="item_durability" value={ this.state.itemDurability } onChange={ this.handleDurabilityUpdate.bind( this ) }>
+                            <select id="item_durability" value={ this.state.durability } onChange={ this.handleDurabilityUpdate.bind( this ) }>
                             {
                                 durabilityArr.map( ( durability, index ) => {
                                     return <option key={ index } value={ durability } >{ durability }</option>
