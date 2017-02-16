@@ -18,7 +18,12 @@ class ItemForm extends React.Component {
     constructor( props ) {
         super( props );
 
-        this.state = {
+        this.state = this.getEmptyItem();
+    }
+
+
+    getEmptyItem() {
+        return {
             name: '',
             durability: durabilityArr[ 0 ],
             type: typesArr[ 0 ]
@@ -26,10 +31,12 @@ class ItemForm extends React.Component {
     }
     
     
+    // TOOD[@jmykolyn] - Validate data before invoking `addItem()`.
     handleFormSubmit( event ) {
         event.preventDefault();
 
         this.props.addItem( this.state );
+        this.setState( this.getEmptyItem() );
     }
 
 
