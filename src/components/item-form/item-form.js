@@ -35,6 +35,16 @@ class ItemForm extends React.Component {
     handleFormSubmit( event ) {
         event.preventDefault();
 
+        // Loop over `this.state`, convert 'number strings' to integers.
+        // TODO[@jmykolyn] - Revisit block below, maybe there's a more 'React-y' way to achieve the same result.
+        for ( let key in this.state ) {
+            let value = parseInt( this.state[ key ] );
+
+            if ( !isNaN( value ) ) {
+                this.state[ key ] = value;
+            }
+        }
+
         this.props.addItem( this.state );
         this.setState( this.getEmptyItem() );
     }
